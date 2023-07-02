@@ -30,3 +30,6 @@ Book a parking in nearby areas
 
 ## My parkings
 ![image](https://github.com/nileshkolhe1/parking/assets/138394887/9bf1a395-5828-4c0a-9944-e20ffde358cd)
+
+# Author
+Nilesh Kolhe
