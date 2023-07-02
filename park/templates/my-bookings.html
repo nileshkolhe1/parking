@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>My bookings</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Rate per hour</th>
+            <th>Total hours parked</th>
+            <th>Total amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{booking.parking.address}}</td>
+            <td>{{booking.parking.latitude}}</td>
+            <td>{{booking.parking.longitude}}</td>
+            <td>{{booking.parking.rate_per_hour}}</td>
+            <td>{{booking.hours}}</td>
+            <td>{{booking.amount}}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+{% endblock content %}

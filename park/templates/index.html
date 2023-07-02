@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Available parkings</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Status</th>
+            <th>Rate per hour</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for parking in parkings %}
+            <tr>
+                <td>{{parking.address}}</td>
+                <td>{{parking.latitude}}</td>
+                <td>{{parking.longitude}}</td>
+                <td>{{parking.status}}</td>
+                <td>{{parking.rate_per_hour}}</td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

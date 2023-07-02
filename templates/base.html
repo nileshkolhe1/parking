@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    {% with url_name=request.resolver_match.url_name %}
+        {% if url_name != 'login' and url_name != 'signup' %}
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">ParkIn</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li class="{% if url_name == 'index' %}active{% endif %}"><a href="{% url 'index' %}">Available Parkings</a></li>
+                    <li class="{% if url_name == 'search' %}active{% endif %}"><a href="{% url 'search' %}">Search Parking</a></li>
+                    <li class="{% if url_name == 'my-parkings' %}active{% endif %}"><a href="{% url 'my-parkings' %}">My Parkings</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a href="#">{{ user.get_username }}</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="#">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock content %}
+</body>
+</html>
